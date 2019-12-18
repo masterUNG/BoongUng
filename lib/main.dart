@@ -1,4 +1,5 @@
 import 'package:boongung/scaffold/main_home.dart';
+import 'package:boongung/scaffold/show_list_area.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(primarySwatch: Colors.pink),
       title: 'Boong Ung',
-      home: MainHome(),
+      home: ShowListArea(),
     );
   }
 }

@@ -1,4 +1,17 @@
+import 'package:boongung/widget/my_widget0.dart';
+import 'package:boongung/widget/my_widget1.dart';
+import 'package:boongung/widget/my_widget2.dart';
+import 'package:boongung/widget/my_widget3.dart';
+import 'package:boongung/widget/my_widget4.dart';
+import 'package:boongung/widget/my_widget5.dart';
+import 'package:flutter/material.dart';
+
 class MyConstant {
+
+  String urlList = 'https://rspo.cropslink.com/api/info/list.php';
+
+
+
   List<String> nameIcons = [
     'images/image0.png',
     'images/image1.png',
@@ -15,6 +28,15 @@ class MyConstant {
     'title3',
     'title4',
     'title5'
+  ];
+
+  List<Widget> myWidgets = [
+    MyWidget0(),
+    MyWidget1(),
+    MyWidget2(),
+    MyWidget3(),
+    MyWidget4(),
+    MyWidget5()
   ];
 
   MyConstant();
