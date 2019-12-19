@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "513551680950",
+    "firebase_url": "https://ungtouring.firebaseio.com",
+    "project_id": "ungtouring",
+    "storage_bucket": "ungtouring.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:513551680950:android:a0cff44152050873c9ed17",
+        "android_client_info": {
+          "package_name": "com.flutterthailand.boongung"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "513551680950-9he4566rm4be114govri1co6ijdgn9t5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEFT2p-VN65j_O-DbFbs97SUysdLGIIW4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "513551680950-9he4566rm4be114govri1co6ijdgn9t5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "513551680950-sj8b0v86p992jj32dpp6ssa6tku2b2uu.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.flutterthailand.ungtouring"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:513551680950:android:3449c8425c0edb0cc9ed17",
+        "android_client_info": {
+          "package_name": "com.flutterthailand.ungtouring"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "513551680950-9he4566rm4be114govri1co6ijdgn9t5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEFT2p-VN65j_O-DbFbs97SUysdLGIIW4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "513551680950-9he4566rm4be114govri1co6ijdgn9t5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "513551680950-sj8b0v86p992jj32dpp6ssa6tku2b2uu.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.flutterthailand.ungtouring"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

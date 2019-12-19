@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:dio/dio.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -55,20 +56,17 @@ class _AddPhotoState extends State<AddPhoto> {
         icon: Icon(Icons.cloud_upload),
         label: Text('Upload'),
         onPressed: () {
-
           if (file == null) {
             print('Non Choose Image');
           } else {
             uploadThread();
           }
-
         },
       ),
     );
   }
 
-  Future<void> uploadThread()async{
-
+  Future<void> uploadThread() async {
     String url = 'https://rspo.cropslink.com/api/info/saveFile.php';
 
     Random random = Random();
@@ -77,18 +75,13 @@ class _AddPhotoState extends State<AddPhoto> {
     print('nameFile = $nameFile');
 
     try {
-
       Map<String, dynamic> map = Map();
       map['file'] = UploadFileInfo(file, nameFile);
       FormData formData = FormData.from(map);
 
       Response response = await Dio().post(url, data: formData);
       print('response = $response');
-
-      
-    } catch (e) {
-    }
-
+    } catch (e) {}
   }
 
   Widget showButton() {
@@ -144,9 +137,55 @@ class _AddPhotoState extends State<AddPhoto> {
             backButton(),
             showPicture(),
             showButton(),
+            buildFloatingActionButton(),
           ],
         ),
       ),
     );
   }
-}
+
+  Widget buildFloatingActionButton() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: <Widget>[
+        Container(
+          margin: EdgeInsets.only(bottom: 80.0, right: 16.0),
+          // color: Colors.grey,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              FloatingActionButton(
+                child: Icon(Icons.cloud_upload),
+                onPressed: () {
+                  uploadToFirebase();
+                },
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  Future<void> uploadToFirebase() async {
+    if (file == null) {
+      print('Non Choose Image');
+    } else {
+      Random random = Random();
+      int i = random.nextInt(10000);
+      String nameFile = 'pic$i.jpg';
+
+      FirebaseStorage firebaseStorage = FirebaseStorage.instance;
+      StorageReference storageReference =
+          firebaseStorage.ref().child('Picture/$nameFile');
+      StorageUploadTask storageUploadTask = storageReference.putFile(file);
+
+      await (await storageUploadTask.onComplete)
+          .ref
+          .getDownloadURL()
+          .then((object) {
+            print('object ===> $object');
+          });
+    }
+  }
+} // Class
