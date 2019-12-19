@@ -1,4 +1,5 @@
 import 'package:boongung/scaffold/edit_data.dart';
+import 'package:boongung/scaffold/my_widget0.dart';
 import 'package:boongung/utility/my_constant.dart';
 import 'package:boongung/utility/my_style.dart';
 import 'package:flutter/material.dart';
@@ -18,13 +19,12 @@ class _MainHomeState extends State<MainHome> {
 
   // Method
   @override
-  void initState() { 
+  void initState() {
     super.initState();
     currentId = widget.id;
     print('currentId = $currentId');
     currentName = widget.name;
   }
-
 
   Widget showImage(String nameIcon) {
     return Container(
@@ -46,11 +46,7 @@ class _MainHomeState extends State<MainHome> {
       height: MediaQuery.of(context).size.width * 0.3,
       child: GestureDetector(
         onTap: () {
-          MaterialPageRoute materialPageRoute =
-              MaterialPageRoute(builder: (BuildContext buildContext) {
-            return EditData(index: index);
-          });
-          Navigator.of(context).push(materialPageRoute);
+          moveToListDetail(index);
         },
         child: Card(
           child: Column(
@@ -63,6 +59,22 @@ class _MainHomeState extends State<MainHome> {
         ),
       ),
     );
+  }
+
+  void moveToListDetail(int index) {
+    switch (index) {
+      case 0:
+        MaterialPageRoute materialPageRoute =
+            MaterialPageRoute(builder: (BuildContext buildContext) {
+          return MyWidget0(
+            idTitle: index,
+            idArea: currentId,
+          );
+        });
+        Navigator.of(context).push(materialPageRoute);
+        break;
+      default:
+    }
   }
 
   Widget rowOne() {

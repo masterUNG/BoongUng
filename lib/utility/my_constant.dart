@@ -1,4 +1,5 @@
-import 'package:boongung/widget/my_widget0.dart';
+
+import 'package:boongung/scaffold/my_widget0.dart';
 import 'package:boongung/widget/my_widget1.dart';
 import 'package:boongung/widget/my_widget2.dart';
 import 'package:boongung/widget/my_widget3.dart';
@@ -41,3 +42,5 @@ class MyConstant {
 
   MyConstant();
 }
+
+

@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:boongung/scaffold/add_photo.dart';
 import 'package:boongung/scaffold/main_home.dart';
 import 'package:boongung/utility/my_constant.dart';
 import 'package:boongung/utility/my_style.dart';
@@ -25,6 +26,15 @@ class _ShowListAreaState extends State<ShowListArea> {
   }
 
   Future<void> readDataThread() async {
+    // Remove All Member in Array
+    if (ids.length != 0) {
+      ids.removeWhere((String string) {
+        return string != null;
+      });
+
+      names.removeWhere((String string) => string != null);
+    }
+
     String myJSON = '{"owner":1}';
 
     Response response = await post(urlPHP, body: myJSON);
@@ -57,7 +67,10 @@ class _ShowListAreaState extends State<ShowListArea> {
                   name: names[index],
                 );
               });
-              Navigator.of(context).push(materialPageRoute);
+              Navigator.of(context).push(materialPageRoute).then((object) {
+                print('Back to ShowList');
+                readDataThread();
+              });
             },
             child: Card(
               child: Text(
@@ -77,9 +90,32 @@ class _ShowListAreaState extends State<ShowListArea> {
     );
   }
 
+  Widget menuAddPicture() {
+    return ListTile(
+      leading: Icon(Icons.add_a_photo),
+      title: Text('Add Photo'),
+      onTap: () {
+        MaterialPageRoute materialPageRoute = MaterialPageRoute(builder: (BuildContext buildContext)=> AddPhoto());
+        Navigator.of(context).push(materialPageRoute);
+        // Navigator.of(context).pop();
+      },
+    );
+  }
+
+  Widget showDrawer() {
+    return Drawer(
+      child: ListView(
+        children: <Widget>[
+          menuAddPicture(),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: showDrawer(),
       appBar: AppBar(
         title: Text('Show ListArea'),
       ),
