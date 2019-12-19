@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:boongung/scaffold/add_photo.dart';
 import 'package:boongung/scaffold/main_home.dart';
+import 'package:boongung/scaffold/show_calendar.dart';
 import 'package:boongung/utility/my_constant.dart';
 import 'package:boongung/utility/my_style.dart';
 import 'package:flutter/material.dart';
@@ -102,11 +103,23 @@ class _ShowListAreaState extends State<ShowListArea> {
     );
   }
 
+  Widget menuShowCalendar() {
+    return ListTile(
+      leading: Icon(Icons.calendar_today),
+      title: Text('Show Calendar'),
+      onTap: () {
+        MaterialPageRoute materialPageRoute = MaterialPageRoute(builder: (BuildContext buildContext)=> ShowCalendar());
+        Navigator.of(context).push(materialPageRoute);
+        // Navigator.of(context).pop();
+      },
+    );
+  }
+
   Widget showDrawer() {
     return Drawer(
       child: ListView(
         children: <Widget>[
-          menuAddPicture(),
+          menuAddPicture(),menuShowCalendar(),
         ],
       ),
     );
